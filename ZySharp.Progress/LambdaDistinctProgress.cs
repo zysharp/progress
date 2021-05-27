@@ -51,6 +51,7 @@ namespace ZySharp.Progress
             _isEqualValue = isEqualValue;
         }
 
+        /// <inheritdoc cref="DistinctProgressBase{T}.ShouldReport"/>
         protected override bool ShouldReport(T lastValue, T currentValue)
         {
             return !_isEqualValue(lastValue, currentValue);

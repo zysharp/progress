@@ -36,6 +36,9 @@ namespace ZySharp.Progress
             TotalProgress = 0.0d
         };
 
+        /// <summary>
+        /// The current progress object.
+        /// </summary>
         public TOutput Progress => (TOutput)_progress.Clone();
 
         static MultiStepEnumProgress()
@@ -118,6 +121,7 @@ namespace ZySharp.Progress
             Report(default);
         }
 
+        /// <inheritdoc cref="ProjectionProgressBase{TInput,TOutput}.Transform"/>
         protected override TOutput Transform(TInput value)
         {
             if (_progress.CurrentStep == 0)

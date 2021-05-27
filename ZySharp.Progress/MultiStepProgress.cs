@@ -27,6 +27,9 @@ namespace ZySharp.Progress
     {
         private TOutput _progress;
 
+        /// <summary>
+        /// The current progress object.
+        /// </summary>
         public TOutput Progress => (TOutput)_progress.Clone();
 
         static MultiStepProgress()
@@ -136,6 +139,7 @@ namespace ZySharp.Progress
             SetCurrentStep(_progress.CurrentStep + 1, stepName);
         }
 
+        /// <inheritdoc cref="ProjectionProgressBase{TInput,TOutput}.Transform"/>
         protected override TOutput Transform(TInput value)
         {
             if (_progress.CurrentStep == 0)

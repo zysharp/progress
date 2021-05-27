@@ -8,7 +8,8 @@ namespace ZySharp.Progress
     /// </summary>
     /// <typeparam name="TInput">The input progress value type.</typeparam>
     /// <typeparam name="TOutput">The output progress value type.</typeparam>
-    public sealed class ConversionProgress<TInput, TOutput> : ProjectionProgressBase<TInput, TOutput>
+    public sealed class ConversionProgress<TInput, TOutput> :
+        ProjectionProgressBase<TInput, TOutput>
         where TInput : IConvertible
     {
         /// <summary>
@@ -34,6 +35,7 @@ namespace ZySharp.Progress
         {
         }
 
+        /// <inheritdoc cref="ProjectionProgressBase{TInput,TOutput}.Transform"/>
         protected override TOutput Transform(TInput value)
         {
             return (TOutput)Convert.ChangeType(value, typeof(TOutput), CultureInfo.InvariantCulture);

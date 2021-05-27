@@ -10,6 +10,9 @@ namespace ZySharp.Progress
     public interface IChainedProgress<in TInput, TOutput> :
         IProgress<TInput>
     {
+        /// <summary>
+        /// The next progress handler.
+        /// </summary>
         public IProgress<TOutput> NextHandler { get; set; }
     }
 }

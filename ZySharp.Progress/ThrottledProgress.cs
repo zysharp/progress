@@ -39,6 +39,7 @@ namespace ZySharp.Progress
         {
         }
 
+        /// <inheritdoc cref="ChainedProgressBase{TInput,TOutput}.Report"/>
         public override void Report(T value)
         {
             var shouldReport = (DateTime.UtcNow - _lastReportTime) >= MinReportInterval;

@@ -5,6 +5,12 @@ using ZySharp.Validation;
 
 namespace ZySharp.Progress.Builder
 {
+    /// <summary>
+    /// Represents a progress-builder context that is used to provide fluent-api functionality.
+    /// </summary>
+    /// <typeparam name="TResult">The type of the resulting handlers progress value.</typeparam>
+    /// <typeparam name="TPrevious">The type of the previous progress value.</typeparam>
+    /// <typeparam name="TCurrent">The type of the current progress value.</typeparam>
     public sealed class ProgressBuilderContext<TResult, TPrevious, TCurrent>
     {
         private IProgress<TResult> _result;

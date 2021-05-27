@@ -25,10 +25,14 @@ namespace ZySharp.Progress
         {
         }
 
+        /// <summary>
+        /// The constructor.
+        /// </summary>
         protected FilteredProgressBase()
         {
         }
 
+        /// <inheritdoc cref="ChainedProgressBase{TInput,TOutput}.Report"/>
         public override void Report(T value)
         {
             if (!ShouldReport(value))
@@ -39,6 +43,11 @@ namespace ZySharp.Progress
             ReportNext(value);
         }
 
+        /// <summary>
+        /// Checks if the given value should be reported to the next progress-handler.
+        /// </summary>
+        /// <param name="value">The current value.</param>
+        /// <returns>`True`, if the given value should be reported or false, if not.</returns>
         protected abstract bool ShouldReport(T value);
     }
 }

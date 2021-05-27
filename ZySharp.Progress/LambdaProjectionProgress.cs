@@ -53,6 +53,7 @@ namespace ZySharp.Progress
             _selector = selector;
         }
 
+        /// <inheritdoc cref="ProjectionProgressBase{TInput,TOutput}.Transform"/>
         protected override TOutput Transform(TInput value)
         {
             return _selector(value);

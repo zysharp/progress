@@ -25,6 +25,7 @@ namespace ZySharp.Progress
             _action = action;
         }
 
+        /// <inheritdoc cref="IProgress{T}.Report"/>
         public void Report(T value)
         {
             _action(value);

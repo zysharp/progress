@@ -26,15 +26,24 @@ namespace ZySharp.Progress
         {
         }
 
+        /// <summary>
+        /// The constructor.
+        /// </summary>
         protected ProjectionProgressBase()
         {
         }
 
+        /// <inheritdoc cref="ChainedProgressBase{TInput,TOutput}.Report"/>
         public override void Report(TInput value)
         {
             ReportNext(Transform(value));
         }
 
+        /// <summary>
+        /// Transforms the given input value to the output type.
+        /// </summary>
+        /// <param name="value">The input value.</param>
+        /// <returns>The transformed output value.</returns>
         protected abstract TOutput Transform(TInput value);
     }
 }

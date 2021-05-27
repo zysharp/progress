@@ -5,13 +5,14 @@
     <IsPackable>true</IsPackable>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageId>ZySharp.Progress</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Authors>Florian Bernd</Authors>
     <Company />
     <Copyright />
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageProjectUrl></PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/flobernd/zysharp-progress</PackageProjectUrl>
     <RepositoryUrl>https://github.com/flobernd/zysharp-progress</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
@@ -42,7 +43,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ZySharp.Validation" Version="1.0.2" />
+    <PackageReference Include="ZySharp.Validation" Version="1.0.4" />
   </ItemGroup>
 
   <ItemGroup>

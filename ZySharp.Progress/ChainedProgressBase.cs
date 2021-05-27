@@ -14,6 +14,7 @@ namespace ZySharp.Progress
     {
         private IProgress<TOutput> _nextHandler;
 
+        /// <inheritdoc cref="IChainedProgress{TInput,TOutput}.NextHandler"/>
         public IProgress<TOutput> NextHandler
         {
             get => _nextHandler;
@@ -49,12 +50,20 @@ namespace ZySharp.Progress
             _nextHandler = new LambdaProgress<TOutput>(action);
         }
 
+        /// <summary>
+        /// The constructor.
+        /// </summary>
         protected ChainedProgressBase()
         {
         }
 
+        /// <inheritdoc cref="IProgress{T}.Report"/>
         public abstract void Report(TInput value);
 
+        /// <summary>
+        /// Reports the given value to the next progress handler.
+        /// </summary>
+        /// <param name="value">The value to report to the next progress handler.</param>
         protected void ReportNext(TOutput value)
         {
             if (_nextHandler is null)

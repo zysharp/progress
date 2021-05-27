@@ -21,8 +21,14 @@ namespace ZySharp.Progress
         private readonly double _max;
         private readonly double _total;
 
+        /// <summary>
+        /// The minimum progress value. Used to calculate the percentage progress.
+        /// </summary>
         public T MinProgressValue { get; }
 
+        /// <summary>
+        /// The maximum progress value. Used to calculate the percentage progress.
+        /// </summary>
         public T MaxProgressValue { get; }
 
         /// <summary>
@@ -96,6 +102,7 @@ namespace ZySharp.Progress
             _total = (_max - _min);
         }
 
+        /// <inheritdoc cref="ChainedProgressBase{TInput,TOutput}.Report"/>
         public override void Report(T value)
         {
             var v = Convert.ToDouble(value, CultureInfo.InvariantCulture);

@@ -2,6 +2,9 @@
 
 namespace ZySharp.Progress
 {
+    /// <summary>
+    /// Base interface for all multi-step enum progress-value classes.
+    /// </summary>
     public interface IMultiStepEnumProgressValue<TEnum> :
         IMultiStepProgressValue
         where TEnum : Enum

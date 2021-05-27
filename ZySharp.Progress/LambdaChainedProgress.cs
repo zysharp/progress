@@ -52,6 +52,7 @@ namespace ZySharp.Progress
             _callback = callback;
         }
 
+        /// <inheritdoc cref="ChainedProgressBase{TInput,TOutput}.Report"/>
         public override void Report(T value)
         {
             _callback(value);

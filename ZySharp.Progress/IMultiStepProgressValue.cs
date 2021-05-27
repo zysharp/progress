@@ -1,5 +1,8 @@
 ﻿namespace ZySharp.Progress
 {
+    /// <summary>
+    /// Base interface for all multi-step progress-value classes.
+    /// </summary>
     public interface IMultiStepProgressValue
     {
         /// <summary>

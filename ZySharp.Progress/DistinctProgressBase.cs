@@ -34,10 +34,14 @@ namespace ZySharp.Progress
         {
         }
 
+        /// <summary>
+        /// The constructor.
+        /// </summary>
         protected DistinctProgressBase()
         {
         }
 
+        /// <inheritdoc cref="ChainedProgressBase{TInput,TOutput}.Report"/>
         public override void Report(T value)
         {
             var forceUpdate = ForceReportInterval.HasValue && ((DateTime.UtcNow - _lastReportTime) >= ForceReportInterval);
@@ -55,6 +59,12 @@ namespace ZySharp.Progress
             ReportNext(value);
         }
 
+        /// <summary>
+        /// Checks if the given value should be reported to the next progress-handler.
+        /// </summary>
+        /// <param name="lastValue">The last value that has been reported.</param>
+        /// <param name="currentValue">The current value.</param>
+        /// <returns>`True`, if the given value should be reported or `false`, if not.</returns>
         protected abstract bool ShouldReport(T lastValue, T currentValue);
     }
 }

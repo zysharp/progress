@@ -52,6 +52,7 @@ namespace ZySharp.Progress
             _equalityComparer = equalityComparer;
         }
 
+        /// <inheritdoc cref="DistinctProgressBase{T}.ShouldReport"/>
         protected override bool ShouldReport(T lastValue, T currentValue)
         {
             return !_equalityComparer.Equals(currentValue, lastValue);

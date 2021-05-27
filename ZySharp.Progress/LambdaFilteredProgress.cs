@@ -51,6 +51,7 @@ namespace ZySharp.Progress
             _filter = filter;
         }
 
+        /// <inheritdoc cref="FilteredProgressBase{T}.ShouldReport"/>
         protected override bool ShouldReport(T value)
         {
             return _filter(value);
