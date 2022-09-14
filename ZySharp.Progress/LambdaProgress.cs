@@ -19,8 +19,7 @@ namespace ZySharp.Progress
         /// <param name="action">The action to execute when a progress value is reported.</param>
         public LambdaProgress(Action<T> action)
         {
-            ValidateArgument.For(action, nameof(action))
-                .NotNull();
+            ValidateArgument.For(action, nameof(action), v => v.NotNull());
 
             _action = action;
         }

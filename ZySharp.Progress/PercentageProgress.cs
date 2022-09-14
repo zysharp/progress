@@ -54,8 +54,7 @@ namespace ZySharp.Progress
         /// <param name="maxProgressValue">The maximum progress value. Used to calculate the percentage progress.</param>
         public PercentageProgress(IProgress<double> nextHandler, T minProgressValue, T maxProgressValue) : base(nextHandler)
         {
-            ValidateArgument.For(maxProgressValue, nameof(maxProgressValue))
-                .GreaterThan(minProgressValue);
+            ValidateArgument.For(maxProgressValue, nameof(maxProgressValue), v => v.GreaterThan(minProgressValue));
 
             MinProgressValue = minProgressValue;
             MaxProgressValue = maxProgressValue;
@@ -73,8 +72,7 @@ namespace ZySharp.Progress
         /// <param name="maxProgressValue">The maximum progress value. Used to calculate the percentage progress.</param>
         public PercentageProgress(Action<double> action, T minProgressValue, T maxProgressValue) : base(action)
         {
-            ValidateArgument.For(maxProgressValue, nameof(maxProgressValue))
-                .GreaterThan(minProgressValue);
+            ValidateArgument.For(maxProgressValue, nameof(maxProgressValue), v => v.GreaterThan(minProgressValue));
 
             MinProgressValue = minProgressValue;
             MaxProgressValue = maxProgressValue;
@@ -91,8 +89,7 @@ namespace ZySharp.Progress
         /// <param name="maxProgressValue">The maximum progress value. Used to calculate the percentage progress.</param>
         public PercentageProgress(T minProgressValue, T maxProgressValue)
         {
-            ValidateArgument.For(maxProgressValue, nameof(maxProgressValue))
-                .GreaterThan(minProgressValue);
+            ValidateArgument.For(maxProgressValue, nameof(maxProgressValue), v => v.GreaterThan(minProgressValue));
 
             MinProgressValue = minProgressValue;
             MaxProgressValue = maxProgressValue;

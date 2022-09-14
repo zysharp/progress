@@ -21,8 +21,7 @@ namespace ZySharp.Progress
         /// <param name="callback">The callback to execute when a progress value is reported.</param>
         public LambdaChainedProgress(IProgress<T> nextHandler, Action<T> callback) : base(nextHandler)
         {
-            ValidateArgument.For(callback, nameof(callback))
-                .NotNull();
+            ValidateArgument.For(callback, nameof(callback), v => v.NotNull());
 
             _callback = callback;
         }
@@ -34,8 +33,7 @@ namespace ZySharp.Progress
         /// <param name="callback">The callback to execute when a progress value is reported.</param>
         public LambdaChainedProgress(Action<T> action, Action<T> callback) : base(action)
         {
-            ValidateArgument.For(callback, nameof(callback))
-                .NotNull();
+            ValidateArgument.For(callback, nameof(callback), v => v.NotNull());
 
             _callback = callback;
         }
@@ -46,8 +44,7 @@ namespace ZySharp.Progress
         /// <param name="callback">The callback to execute when a progress value is reported.</param>
         public LambdaChainedProgress(Action<T> callback)
         {
-            ValidateArgument.For(callback, nameof(callback))
-                .NotNull();
+            ValidateArgument.For(callback, nameof(callback), v => v.NotNull());
 
             _callback = callback;
         }

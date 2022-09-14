@@ -48,8 +48,7 @@ namespace ZySharp.Progress
         /// <param name="totalSteps">The initial total amount of steps.</param>
         public MultiStepProgress(IProgress<TOutput> nextHandler, int totalSteps) : base(nextHandler)
         {
-            ValidateArgument.For(totalSteps, nameof(totalSteps))
-                .GreaterThan(0);
+            ValidateArgument.For(totalSteps, nameof(totalSteps), v => v.GreaterThan(0));
 
             Init(totalSteps);
         }
@@ -61,8 +60,7 @@ namespace ZySharp.Progress
         /// <param name="totalSteps">The initial total amount of steps.</param>
         public MultiStepProgress(Action<TOutput> action, int totalSteps) : base(action)
         {
-            ValidateArgument.For(totalSteps, nameof(totalSteps))
-                .GreaterThan(0);
+            ValidateArgument.For(totalSteps, nameof(totalSteps), v => v.GreaterThan(0));
 
             Init(totalSteps);
         }
@@ -73,8 +71,7 @@ namespace ZySharp.Progress
         /// <param name="totalSteps">The initial total amount of steps.</param>
         public MultiStepProgress(int totalSteps)
         {
-            ValidateArgument.For(totalSteps, nameof(totalSteps))
-                .GreaterThan(0);
+            ValidateArgument.For(totalSteps, nameof(totalSteps), v => v.GreaterThan(0));
 
             Init(totalSteps);
         }
@@ -89,9 +86,9 @@ namespace ZySharp.Progress
         /// <param name="totalSteps">The new amount of total steps.</param>
         public void SetTotalSteps(int totalSteps)
         {
-            ValidateArgument.For(totalSteps, nameof(totalSteps))
+            ValidateArgument.For(totalSteps, nameof(totalSteps), v => v
                 .GreaterThan(0)
-                .GreaterThanOrEqualTo(_progress.TotalSteps);
+                .GreaterThanOrEqualTo(_progress.TotalSteps));
 
             if (totalSteps == _progress.TotalSteps)
             {
@@ -113,8 +110,7 @@ namespace ZySharp.Progress
         /// <param name="stepName">An optional name that describes the current step.</param>
         public void SetCurrentStep(int currentStep, string stepName = null)
         {
-            ValidateArgument.For(currentStep, nameof(currentStep))
-                .InRange(1, _progress.TotalSteps);
+            ValidateArgument.For(currentStep, nameof(currentStep), v => v.InRange(1, _progress.TotalSteps));
 
             if (currentStep == _progress.CurrentStep)
             {

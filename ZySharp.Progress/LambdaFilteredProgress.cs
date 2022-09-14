@@ -20,8 +20,7 @@ namespace ZySharp.Progress
         /// <param name="filter">The filter lambda.</param>
         public LambdaFilteredProgress(IProgress<T> nextHandler, Func<T, bool> filter) : base(nextHandler)
         {
-            ValidateArgument.For(filter, nameof(filter))
-                .NotNull();
+            ValidateArgument.For(filter, nameof(filter), v => v.NotNull());
 
             _filter = filter;
         }
@@ -33,8 +32,7 @@ namespace ZySharp.Progress
         /// <param name="filter">The filter lambda.</param>
         public LambdaFilteredProgress(Action<T> action, Func<T, bool> filter) : base(action)
         {
-            ValidateArgument.For(filter, nameof(filter))
-                .NotNull();
+            ValidateArgument.For(filter, nameof(filter), v => v.NotNull());
 
             _filter = filter;
         }
@@ -45,8 +43,7 @@ namespace ZySharp.Progress
         /// <param name="filter">The filter lambda.</param>
         public LambdaFilteredProgress(Func<T, bool> filter)
         {
-            ValidateArgument.For(filter, nameof(filter))
-                .NotNull();
+            ValidateArgument.For(filter, nameof(filter), v => v.NotNull());
 
             _filter = filter;
         }

@@ -21,8 +21,7 @@ namespace ZySharp.Progress
         /// <param name="equalityComparer">The equality comparer instance to use.</param>
         public DistinctProgress(IProgress<T> nextHandler, IEqualityComparer<T> equalityComparer = null) : base(nextHandler)
         {
-            ValidateArgument.For(equalityComparer, nameof(equalityComparer))
-                .NotNull();
+            ValidateArgument.For(equalityComparer, nameof(equalityComparer), v => v.NotNull());
 
             _equalityComparer = equalityComparer;
         }
@@ -34,8 +33,7 @@ namespace ZySharp.Progress
         /// <param name="equalityComparer">The equality comparer instance to use.</param>
         public DistinctProgress(Action<T> action, IEqualityComparer<T> equalityComparer = null) : base(action)
         {
-            ValidateArgument.For(equalityComparer, nameof(equalityComparer))
-                .NotNull();
+            ValidateArgument.For(equalityComparer, nameof(equalityComparer), v => v.NotNull());
 
             _equalityComparer = equalityComparer;
         }
@@ -46,8 +44,7 @@ namespace ZySharp.Progress
         /// <param name="equalityComparer">The equality comparer instance to use.</param>
         public DistinctProgress(IEqualityComparer<T> equalityComparer = null)
         {
-            ValidateArgument.For(equalityComparer, nameof(equalityComparer))
-                .NotNull();
+            ValidateArgument.For(equalityComparer, nameof(equalityComparer), v => v.NotNull());
 
             _equalityComparer = equalityComparer;
         }

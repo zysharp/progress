@@ -35,10 +35,8 @@ namespace ZySharp.Progress.Builder
         public static IProgress<TR> Build<TR, TP, TC>(this ProgressBuilderContext<TR, TP, TC> context,
             Action<TC> action)
         {
-            ValidateArgument.For(context, nameof(context))
-                .NotNull();
-            ValidateArgument.For(action, nameof(action))
-                .NotNull();
+            ValidateArgument.For(context, nameof(context), v => v.NotNull());
+            ValidateArgument.For(action, nameof(action), v => v.NotNull());
 
             return context.Build(new LambdaProgress<TC>(action));
         }
@@ -58,8 +56,7 @@ namespace ZySharp.Progress.Builder
         public static ProgressBuilderContext<TR, TC, TC> Call<TR, TP, TC>(this ProgressBuilderContext<TR, TP, TC> context,
             Action<TC> callback)
         {
-            ValidateArgument.For(context, nameof(context))
-                .NotNull();
+            ValidateArgument.For(context, nameof(context), v => v.NotNull());
 
             return context.Append(new LambdaChainedProgress<TC>(callback));
         }
@@ -76,8 +73,7 @@ namespace ZySharp.Progress.Builder
         public static ProgressBuilderContext<TR, TC, TC> Throttle<TR, TP, TC>(this ProgressBuilderContext<TR, TP, TC> context,
             TimeSpan minReportInterval)
         {
-            ValidateArgument.For(context, nameof(context))
-                .NotNull();
+            ValidateArgument.For(context, nameof(context), v => v.NotNull());
 
             return context.Append(new ThrottledProgress<TC>
             {
@@ -103,8 +99,7 @@ namespace ZySharp.Progress.Builder
             TimeSpan? forceReportInterval = null)
             where TC : IEquatable<TC>
         {
-            ValidateArgument.For(context, nameof(context))
-                .NotNull();
+            ValidateArgument.For(context, nameof(context), v => v.NotNull());
 
             return context.Append(new DistinctProgress<TC>(EqualityComparer<TC>.Default)
             {
@@ -130,8 +125,7 @@ namespace ZySharp.Progress.Builder
         public static ProgressBuilderContext<TR, TC, TC> Distinct<TR, TP, TC>(this ProgressBuilderContext<TR, TP, TC> context,
             IEqualityComparer<TC> equalityComparer, TimeSpan? forceReportInterval = null)
         {
-            ValidateArgument.For(context, nameof(context))
-                .NotNull();
+            ValidateArgument.For(context, nameof(context), v => v.NotNull());
 
             return context.Append(new DistinctProgress<TC>(equalityComparer)
             {
@@ -157,8 +151,7 @@ namespace ZySharp.Progress.Builder
         public static ProgressBuilderContext<TR, TC, TC> Distinct<TR, TP, TC>(this ProgressBuilderContext<TR, TP, TC> context,
             Func<TC, TC, bool> isEqualValue, TimeSpan? forceReportInterval = null)
         {
-            ValidateArgument.For(context, nameof(context))
-                .NotNull();
+            ValidateArgument.For(context, nameof(context), v => v.NotNull());
 
             return context.Append(new LambdaDistinctProgress<TC>(isEqualValue)
             {
@@ -181,8 +174,7 @@ namespace ZySharp.Progress.Builder
         public static ProgressBuilderContext<TR, TC, TC> Where<TR, TP, TC>(this ProgressBuilderContext<TR, TP, TC> context,
             Func<TC, bool> filter)
         {
-            ValidateArgument.For(context, nameof(context))
-                .NotNull();
+            ValidateArgument.For(context, nameof(context), v => v.NotNull());
 
             return context.Append(new LambdaFilteredProgress<TC>(filter));
         }
@@ -203,8 +195,7 @@ namespace ZySharp.Progress.Builder
         public static ProgressBuilderContext<TR, TC, TN> Select<TR, TP, TC, TN>(this ProgressBuilderContext<TR, TP, TC> context,
             Func<TC, TN> selector)
         {
-            ValidateArgument.For(context, nameof(context))
-                .NotNull();
+            ValidateArgument.For(context, nameof(context), v => v.NotNull());
 
             return context.Append(new LambdaProjectionProgress<TC, TN>(selector));
         }
@@ -226,8 +217,7 @@ namespace ZySharp.Progress.Builder
             TC minProgressValue, TC maxProgressValue)
             where TC : struct, IConvertible, IComparable, IComparable<TC>, IEquatable<TC>
         {
-            ValidateArgument.For(context, nameof(context))
-                .NotNull();
+            ValidateArgument.For(context, nameof(context), v => v.NotNull());
 
             return context.Append(new PercentageProgress<TC>(minProgressValue, maxProgressValue));
         }
@@ -246,7 +236,7 @@ namespace ZySharp.Progress.Builder
         public static ProgressBuilderContext<TR, TC, double> ToPercent<TR, TP, TC>(this ProgressBuilderContext<TR, TP, TC> context)
             where TC : IMultiStepProgressValue
         {
-            ValidateArgument.For(context, nameof(context)).NotNull();
+            ValidateArgument.For(context, nameof(context), v => v.NotNull());
 
             return context.Append(new LambdaProjectionProgress<TC, double>(x => x.TotalProgress));
         }

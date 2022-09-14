@@ -20,8 +20,7 @@ namespace ZySharp.Progress
         /// <param name="isEqualValue">The equality comparer lambda.</param>
         public LambdaDistinctProgress(IProgress<T> nextHandler, Func<T, T, bool> isEqualValue) : base(nextHandler)
         {
-            ValidateArgument.For(isEqualValue, nameof(isEqualValue))
-                .NotNull();
+            ValidateArgument.For(isEqualValue, nameof(isEqualValue), v => v.NotNull());
 
             _isEqualValue = isEqualValue;
         }
@@ -33,8 +32,7 @@ namespace ZySharp.Progress
         /// <param name="isEqualValue">The equality comparer lambda.</param>
         public LambdaDistinctProgress(Action<T> action, Func<T, T, bool> isEqualValue) : base(action)
         {
-            ValidateArgument.For(isEqualValue, nameof(isEqualValue))
-                .NotNull();
+            ValidateArgument.For(isEqualValue, nameof(isEqualValue), v => v.NotNull());
 
             _isEqualValue = isEqualValue;
         }
@@ -45,8 +43,7 @@ namespace ZySharp.Progress
         /// <param name="isEqualValue">The equality comparer lambda.</param>
         public LambdaDistinctProgress(Func<T, T, bool> isEqualValue)
         {
-            ValidateArgument.For(isEqualValue, nameof(isEqualValue))
-                .NotNull();
+            ValidateArgument.For(isEqualValue, nameof(isEqualValue), v => v.NotNull());
 
             _isEqualValue = isEqualValue;
         }

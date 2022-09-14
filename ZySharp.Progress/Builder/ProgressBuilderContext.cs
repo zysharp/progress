@@ -39,8 +39,7 @@ namespace ZySharp.Progress.Builder
         /// <returns>A new <see cref="ProgressBuilderContext{TResult,TPrevious,TCurrent}"/> instance.</returns>
         public ProgressBuilderContext<TResult, TCurrent, TNext> Append<TNext>(IChainedProgress<TCurrent, TNext> nextHandler)
         {
-            ValidateArgument.For(nextHandler, nameof(nextHandler))
-                .NotNull();
+            ValidateArgument.For(nextHandler, nameof(nextHandler), v => v.NotNull());
 
             // As the type of `TResult` is guaranteed to be the type of `TCurrent` for the first builder instance, this
             // cast will always succeed.
@@ -61,8 +60,7 @@ namespace ZySharp.Progress.Builder
         /// <returns>The first progress-handler in the chain.</returns>
         public IProgress<TResult> Build(IProgress<TCurrent> finalHandler)
         {
-            ValidateArgument.For(finalHandler, nameof(finalHandler))
-                .NotNull();
+            ValidateArgument.For(finalHandler, nameof(finalHandler), v => v.NotNull());
 
             // As the type of `TResult` is guaranteed to be the type of `TCurrent` for the first builder instance, this
             // cast will always succeed.

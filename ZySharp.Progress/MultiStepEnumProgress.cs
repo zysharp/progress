@@ -111,8 +111,7 @@ namespace ZySharp.Progress
             }
 
             var info = EnumInfo.FirstOrDefault(x => x.Item1.Equals(value));
-            ValidateArgument.For(info, nameof(value))
-                .NotNull();
+            ValidateArgument.For(info, nameof(value), v => v.NotNull());
 
             _progress.CurrentStep = Array.IndexOf(EnumInfo, info) + 1;
             _progress.CurrentStepValue = value;

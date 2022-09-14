@@ -44,8 +44,7 @@ namespace ZySharp.Progress
         /// <param name="action">The action to execute when a progress value is reported.</param>
         protected ChainedProgressBase(Action<TOutput> action)
         {
-            ValidateArgument.For(action, nameof(action))
-                .NotNull();
+            ValidateArgument.For(action, nameof(action), v => v.NotNull());
 
             _nextHandler = new LambdaProgress<TOutput>(action);
         }

@@ -22,8 +22,7 @@ namespace ZySharp.Progress
         /// <param name="selector">The selector lambda.</param>
         public LambdaProjectionProgress(IProgress<TOutput> nextHandler, Func<TInput, TOutput> selector) : base(nextHandler)
         {
-            ValidateArgument.For(selector, nameof(selector))
-                .NotNull();
+            ValidateArgument.For(selector, nameof(selector), v => v.NotNull());
 
             _selector = selector;
         }
@@ -35,8 +34,7 @@ namespace ZySharp.Progress
         /// <param name="selector">The selector lambda.</param>
         public LambdaProjectionProgress(Action<TOutput> action, Func<TInput, TOutput> selector) : base(action)
         {
-            ValidateArgument.For(selector, nameof(selector))
-                .NotNull();
+            ValidateArgument.For(selector, nameof(selector), v => v.NotNull());
 
             _selector = selector;
         }
@@ -47,8 +45,7 @@ namespace ZySharp.Progress
         /// <param name="selector">The selector lambda.</param>
         public LambdaProjectionProgress(Func<TInput, TOutput> selector)
         {
-            ValidateArgument.For(selector, nameof(selector))
-                .NotNull();
+            ValidateArgument.For(selector, nameof(selector), v => v.NotNull());
 
             _selector = selector;
         }
