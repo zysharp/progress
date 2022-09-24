@@ -31,7 +31,7 @@ namespace ZySharp.Progress
         {
             TotalSteps = EnumInfo.Length,
             CurrentStep = 0,
-            CurrentStepValue = default,
+            CurrentStepValue = default!,
             CurrentProgress = 0.0d,
             TotalProgress = 0.0d
         };
@@ -115,7 +115,7 @@ namespace ZySharp.Progress
 
             _progress.CurrentStep = Array.IndexOf(EnumInfo, info) + 1;
             _progress.CurrentStepValue = value;
-            _progress.CurrentStepName = info.Item2;
+            _progress.CurrentStepName = info!.Item2;
 
             Report(default);
         }

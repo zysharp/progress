@@ -25,7 +25,7 @@ namespace ZySharp.Progress
         where TInput : struct, IConvertible, IComparable, IComparable<TInput>, IEquatable<TInput>
         where TOutput : class, IMultiStepProgressValue, new()
     {
-        private TOutput _progress;
+        private TOutput _progress = default!;
 
         /// <summary>
         /// The current progress object.
@@ -108,7 +108,7 @@ namespace ZySharp.Progress
         /// </summary>
         /// <param name="currentStep">The new current step.</param>
         /// <param name="stepName">An optional name that describes the current step.</param>
-        public void SetCurrentStep(int currentStep, string stepName = null)
+        public void SetCurrentStep(int currentStep, string? stepName = null)
         {
             ValidateArgument.For(currentStep, nameof(currentStep), v => v.InRange(1, _progress.TotalSteps));
 
@@ -130,7 +130,7 @@ namespace ZySharp.Progress
         /// </para>
         /// <param name="stepName">An optional name that describes the current step.</param>
         /// </summary>
-        public void NextStep(string stepName = null)
+        public void NextStep(string? stepName = null)
         {
             SetCurrentStep(_progress.CurrentStep + 1, stepName);
         }

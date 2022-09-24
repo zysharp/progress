@@ -17,10 +17,10 @@ namespace ZySharp.Progress
         public int CurrentStep { get; set; }
 
         /// <inheritdoc cref="IMultiStepProgressValue.CurrentStepName"/>
-        public string CurrentStepName { get; set; }
+        public string? CurrentStepName { get; set; }
 
         /// <inheritdoc cref="IMultiStepEnumProgressValue{TEnum}.CurrentStepValue"/>
-        public TEnum CurrentStepValue { get; set; }
+        public TEnum CurrentStepValue { get; set; } = default!;
 
         /// <inheritdoc cref="IMultiStepProgressValue.CurrentProgress"/>
         public double CurrentProgress { get; set; }

@@ -18,7 +18,7 @@
         /// <summary>
         /// The name of the current step/operation.
         /// </summary>
-        string CurrentStepName { get; set; }
+        string? CurrentStepName { get; set; }
 
         /// <summary>
         /// The progress of the current step/operation.

@@ -13,16 +13,16 @@ namespace ZySharp.Progress.Builder
     /// <typeparam name="TCurrent">The type of the current progress value.</typeparam>
     public sealed class ProgressBuilderContext<TResult, TPrevious, TCurrent>
     {
-        private IProgress<TResult> _result;
+        private IProgress<TResult>? _result;
 
-        private readonly IChainedProgress<TPrevious, TCurrent> _nextHandler;
+        private readonly IChainedProgress<TPrevious, TCurrent>? _nextHandler;
 
         internal ProgressBuilderContext()
         {
             // Hide default constructor
         }
 
-        internal ProgressBuilderContext(IProgress<TResult> result, IChainedProgress<TPrevious, TCurrent> nextHandler)
+        internal ProgressBuilderContext(IProgress<TResult>? result, IChainedProgress<TPrevious, TCurrent> nextHandler)
         {
             Contract.Assert(result != null);
             Contract.Assert(nextHandler != null);
@@ -71,7 +71,7 @@ namespace ZySharp.Progress.Builder
                 _nextHandler.NextHandler = finalHandler;
             }
 
-            return _result;
+            return _result!;
         }
     }
 }
