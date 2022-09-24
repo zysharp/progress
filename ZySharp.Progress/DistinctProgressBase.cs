@@ -10,7 +10,7 @@ namespace ZySharp.Progress
         ChainedProgressBase<T, T>
     {
         private bool _isFirstReport = true;
-        private T _lastValue;
+        private T _lastValue = default!;
         private DateTime _lastReportTime = DateTime.UtcNow.Subtract(TimeSpan.FromSeconds(1));
 
         /// <summary>

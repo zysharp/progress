@@ -1,7 +1,9 @@
 # ZySharp Progress
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
-[![GitHub Actions](https://github.com/flobernd/zysharp-progress/actions/workflows/main.yml/badge.svg)](https://github.com/flobernd/zysharp-progress/actions)
+[![Build](https://github.com/zysharp/progress/actions/workflows/ci.yaml/badge.svg)](https://github.com/zysharp/progress/actions/workflows/ci.yaml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=zysharp_progress&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=zysharp_progress)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=zysharp_progress&metric=coverage)](https://sonarcloud.io/summary/new_code?id=zysharp_progress)
 [![NuGet](https://img.shields.io/nuget/v/ZySharp.Progress.svg)](https://nuget.org/packages/ZySharp.Progress)
 [![Nuget](https://img.shields.io/nuget/dt/ZySharp.Progress.svg)](https://nuget.org/packages/ZySharp.Progress)
 

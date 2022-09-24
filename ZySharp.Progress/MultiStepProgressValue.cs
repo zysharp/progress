@@ -13,7 +13,7 @@
         public int CurrentStep { get; set; }
 
         /// <inheritdoc cref="IMultiStepProgressValue.CurrentStepName"/>
-        public string CurrentStepName { get; set; }
+        public string? CurrentStepName { get; set; }
 
         /// <inheritdoc cref="IMultiStepProgressValue.CurrentProgress"/>
         public double CurrentProgress { get; set; }

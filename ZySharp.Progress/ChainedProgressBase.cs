@@ -54,6 +54,7 @@ namespace ZySharp.Progress
         /// </summary>
         protected ChainedProgressBase()
         {
+            _nextHandler = default!;
         }
 
         /// <inheritdoc cref="IProgress{T}.Report"/>

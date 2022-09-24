@@ -19,7 +19,7 @@ namespace ZySharp.Progress
         /// </summary>
         /// <param name="nextHandler">The next progress handler in the chain.</param>
         /// <param name="equalityComparer">The equality comparer instance to use.</param>
-        public DistinctProgress(IProgress<T> nextHandler, IEqualityComparer<T> equalityComparer = null) : base(nextHandler)
+        public DistinctProgress(IProgress<T> nextHandler, IEqualityComparer<T> equalityComparer) : base(nextHandler)
         {
             ValidateArgument.For(equalityComparer, nameof(equalityComparer), v => v.NotNull());
 
@@ -31,7 +31,7 @@ namespace ZySharp.Progress
         /// </summary>
         /// <param name="action">The action to execute when a progress value is reported.</param>
         /// <param name="equalityComparer">The equality comparer instance to use.</param>
-        public DistinctProgress(Action<T> action, IEqualityComparer<T> equalityComparer = null) : base(action)
+        public DistinctProgress(Action<T> action, IEqualityComparer<T> equalityComparer) : base(action)
         {
             ValidateArgument.For(equalityComparer, nameof(equalityComparer), v => v.NotNull());
 
@@ -42,7 +42,7 @@ namespace ZySharp.Progress
         /// The constructor.
         /// </summary>
         /// <param name="equalityComparer">The equality comparer instance to use.</param>
-        public DistinctProgress(IEqualityComparer<T> equalityComparer = null)
+        public DistinctProgress(IEqualityComparer<T> equalityComparer)
         {
             ValidateArgument.For(equalityComparer, nameof(equalityComparer), v => v.NotNull());
 
